@@ -6,15 +6,15 @@ An Order Matching Engine Module for Dex in Motoko.
 
 ICOrderbook is an order matching engine module for the development of Dex, in Motoko language. 
 
-To develop orderbook Dex on IC, an order matching engine is necessary for order management and order matching. The Matching Engine takes orders as an input, matches them and produces trades as an output. ICOrderbook implements a price-time priority matching algorithm (FIFO): orders are first ranked according to their price; orders of the same price are then ranked depending on when they were entered. 
+To develop an orderbook Dex on the IC, an order matching engine is necessary for order management and order matching. The Matching Engine takes orders as an input, matches them and produces trades as an output. ICOrderbook implements a price-time priority matching algorithm (FIFO): orders are first ranked according to their price; orders of the same price are then ranked depending on when they were entered. 
 
 ICOrderbook supports various order types like limit orders (LMT), market orders (MKT), Fill-And-Kill orders (FAK), Fill-Or-Kill orders (FOK).
 
-ICOrderbook module is the core of Dex, it is reusable and lowers the barrier for Dex developers. 
+ICOrderbook module is the core of the Dex, it is reusable and lowers the barrier for Dex developers. 
 
 ## How it works
 
-The matching engine makes a difference between incoming orders and book orders. Strictly speaking, an incoming order is an order that is in the process of being entered, and a book order is an order that is in the order book already.
+The matching engine defines the difference between incoming orders and book orders. Strictly speaking, an incoming order is an order that is in the process of being entered, and a book order is an order that is in the order book already.
 
 ![Matching engine](deswap-2.jpg)
 
@@ -26,7 +26,7 @@ An order will match fully if its entire open quantity is executed. Since there i
 
 * Partially filled order
 
-Or an order matches partially, if not all its open quantity is executed. In this case an order that was already on the order book remains on the order book, and an order that is in the process of being entered and is not an FOK order, is written to the order book. The quantity that was executed is removed from the open quantity and added to the accumulated executed quantity.
+An order matches partially if not all its open quantity is executed. In this case an order that was already on the order book remains on the order book, and an order that is in the process of being entered and is not an FOK order, is written to the order book. The quantity that was executed is removed from the open quantity and added to the accumulated executed quantity.
 
 * No match
 
@@ -102,7 +102,7 @@ For Example, the trading pair "ICL/ICP" shows how many ICP (the quote token) are
 
 ### Order Price
 
-Order Price means how many token1 (the quote token) are needed to purchase an unit size token0 (the base token), or how many token1 (the quote token) are obtained by selling an unit size token0 (the base token). 
+Order Price means how many token1 (the quote token) are needed to purchase a unit size token0 (the base token), or how many token1 (the quote token) are obtained by selling a unit size token0 (the base token). 
 
 ### Maker & Taker
 
